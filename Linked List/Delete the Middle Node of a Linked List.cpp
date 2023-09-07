@@ -1,6 +1,6 @@
 /*
 Question : 2095. Delete the Middle Node of a Linked List
-Date : 07-09-23
+Date : 26-07-23
 Problem Difficulty level : Medium
 Related Topics : Linked List and Two Pointers
 
