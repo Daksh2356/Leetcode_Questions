@@ -5,7 +5,6 @@ Problem Difficulty level : Medium
 Related Topics : Hash Table, String, Greedy and Sorting
 
 Problem Statement:
-
 A string s is called good if there are no two different characters in s that have the same frequency.
 
 Given a string s, return the minimum number of characters you need to delete to make s good.
