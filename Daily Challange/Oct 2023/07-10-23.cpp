@@ -1,6 +1,6 @@
 /*
 Question : 1420. Build Array Where You Can Find The Maximum Exactly K Comparisons
-Date : 08-10-23
+Date : 07-10-23
 Problem Difficulty level : Hard
 Related Topics : Dynammic Programming and Prefix Sum
 Problem Statement:
