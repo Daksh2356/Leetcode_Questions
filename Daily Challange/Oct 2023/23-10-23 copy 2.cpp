@@ -1,6 +1,6 @@
 /*
 Question: 342. Power of Four
-Date : 23-10-23
+Date : 22-10-23
 Problem Difficulty level : Easy
 Related Topics : Math, Bit Manipulation and Recursion
 Problem Statement:
