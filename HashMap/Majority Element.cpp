@@ -28,6 +28,8 @@ n == nums.length
 Follow-up: Could you solve the problem in linear time and in O(1) space?
 */
 
+// solution 1:
+
 class Solution
 {
 public:
@@ -71,3 +73,37 @@ public:
     // time complexity = O(n)
     // space complexity = O(1)
 };
+
+// solution 2 :
+
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public int majorityElement(final List<Integer> A) {
+        int candidate = Integer.MAX_VALUE;
+        int count = 0; 
+        int n = A.size();
+        
+        // loop to find the candidate
+        for(int i =0; i<n ;i++){
+            if(A.get(i) == candidate)
+                count++;
+            else if(count == 0){
+                candidate =  A.get(i);
+                count = 1;
+            }
+            else
+                count--;
+        }
+        
+        count = 0;    // iterating again to find the "candidate"
+        for(int i=0; i<n; i++){
+            if(A.get(i) == candidate)
+                count++;
+        }
+        
+        if(count > n/2)
+            return candidate;
+            
+        return 0;
+    }
+}
