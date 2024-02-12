@@ -79,31 +79,32 @@ public:
 public class Solution {
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int majorityElement(final List<Integer> A) {
-        int candidate = Integer.MAX_VALUE;
-        int count = 0; 
-        int n = A.size();
-        
-        // loop to find the candidate
-        for(int i =0; i<n ;i++){
-            if(A.get(i) == candidate)
-                count++;
-            else if(count == 0){
-                candidate =  A.get(i);
-                count = 1;
+    
+        int N = A.size();
+        for(int i =0 ;i<N; i++)
+        {
+            int count = occurence(A.get(i), A);
+            if(count > Math.floor(N/2))
+            {
+                return A.get(i);
             }
-            else
-                count--;
         }
         
-        count = 0;    // iterating again to find the "candidate"
-        for(int i=0; i<n; i++){
-            if(A.get(i) == candidate)
-                count++;
-        }
-        
-        if(count > n/2)
-            return candidate;
-            
         return 0;
     }
+    
+    public int occurence(int x, final List<Integer> A)
+    {
+        int count = 0;
+        for(int i = 0; i<A.size(); i++)
+        {
+            if(A.get(i) == x)
+                count++;
+        }
+        
+        return count;
+    }
+
+     // time complexity = O(n)
+    // space complexity = O(n)
 }
