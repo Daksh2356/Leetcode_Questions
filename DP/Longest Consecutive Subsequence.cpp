@@ -1,5 +1,5 @@
 /*
-Question : 128. Longest Increasing Subsequence
+Question : 128. Longest Consecutive Subsequence
 Date : 12-02-24
 Problem Difficulty level : Medium
 Related Topics : Array, Hash Table, Union Find
