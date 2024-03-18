@@ -1,18 +1,18 @@
-INTERVIEW BIT
+// INTERVIEW BIT
 
-Problem Description:
-(Programming ) ( Arrays)
-Given an integer array A of size N.
+// Problem Description:
+// (Programming ) ( Arrays)
+// Given an integer array A of size N.
 
-    You have to pick exactly B elements from either left or
-    right end of the array A to get the maximum sum.
+//     You have to pick exactly B elements from either left or
+//     right end of the array A to get the maximum sum.
 
-    Find and return this maximum possible sum.
+//     Find and return this maximum possible sum.
 
-    NOTE : Suppose B = 4 and array A contains 10 elements then
+//     NOTE : Suppose B = 4 and array A contains 10 elements then
 
-You can pick the first four elements or can pick the last four elements or can pick 1 from the front and 3 from the back etc.
-you need to return the maximum possible sum of elements you can pick.
+// You can pick the first four elements or can pick the last four elements or can pick 1 from the front and 3 from the back etc.
+// you need to return the maximum possible sum of elements you can pick.
 
 Solution : 
 int Solution::solve(vector<int> &A, int B) {
