@@ -6,7 +6,7 @@
 
 
 // Problem Constraints
-// 1 <= |A| <= 105
+// 1 <= |A| <= 10^5
 // 1 <= Ai <= |A|
 
 
