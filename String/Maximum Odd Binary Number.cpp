@@ -1,5 +1,6 @@
 /*
 Question: 2864. Maximum Odd Binary Number
+Date : 31-03-24 
 Problem Difficulty level : Easy
 Related Topics : Math, String and Greedy
 Problem Statement:
