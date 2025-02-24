@@ -1,14 +1,15 @@
 /*
 Question : 229. Majority Element II
-Date : 04-10-23
-Problem Difficulty level : Easy
+// Date : 04-10-23
+? Date : 22/02/25
+Problem Difficulty level : Medium
 Related Topics : Array, Hash Table, Sorting and Counting
 Problem Statement:
 
 Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
 
 Example 1:
-Input: nums = [3,2,3]
+Input: nums = [3,2,3] 
 Output: [3]
 
 Example 2:
@@ -28,61 +29,50 @@ Constraints:
 Follow up: Could you solve the problem in linear time and in O(1) space?
 */
 
-class Solution
-{
-public:
-    vector<int> majorityElement(vector<int> &nums)
-    {
-        int candidate_1 = INT_MAX;
-        int candidate_2 = INT_MAX;
-
-        int n = nums.size();
-
-        int count_1 = 0, count_2 = 0; // for updating the count of both candidates
-
-        for (int num : nums)
-        {
-            if (num == candidate_1)
-                count_1++;
-            else if (num == candidate_2)
-                count_2++;
-            else if (count_1 == 0)
-            {
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        
+        int n = nums.length;
+        List<Integer> ans = new ArrayList<>();
+        
+        int candidate_1 = -1, candidate_2 = -1, c1 = 0, c2=0;
+        
+        for(int num : nums){
+            
+            if(num == candidate_1)
+                c1++;
+            else if(num == candidate_2)
+                c2++;
+            else if(c1==0){
                 candidate_1 = num;
-                count_1 = 1;
+                c1=1;
             }
-            else if (count_2 == 0)
-            {
+            else if(c2 == 0){
                 candidate_2 = num;
-                count_2 = 1;
+                c2 =1;
             }
-            else
-            {
-                count_1--;
-                count_2--;
+            else{
+                c1--; 
+                c2--;
             }
         }
+            
+        c1 =0;
+        c2 = 0;
+        
+        for(int num : nums){
 
-        count_1 = count_2 = 0;
-
-        for (int num : nums)
-        {
-            if (num == candidate_1)
-                count_1++;
-            if (num == candidate_2)
-                count_2++;
+            if(num == candidate_1) c1++;
+            else if(num == candidate_2) c2++;
         }
+        
+        if(c1 > n/3 ) ans.add(candidate_1);
+        if(c2 > n/3) ans.add(candidate_2);
+        
+        return ans;
 
-        vector<int> answer;
+        // time complexity = O(N)
+        // space complexity = O(1) [ Since the space used is of the output List of Integer type]
 
-        if (count_1 > n / 3)
-            answer.push_back(candidate_1);
-        if (count_2 > n / 3)
-            answer.push_back(candidate_2);
-
-        return answer;
     }
-
-    // Time complexity = O(n)
-    // Space complexity = O(1)
-};
+}
