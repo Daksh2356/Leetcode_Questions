@@ -65,3 +65,48 @@ class Solution {
     // time complexity = O(M*N)
     // space complexity = O(M*N)
 }
+
+
+// solution 2: more optimized
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> list = new ArrayList<>();
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+         // Edge case: if matrix is empty
+        if (m == 0)
+            return list;
+
+        int r = 0, c = 0;
+        int dr[] = {0,1,0,-1};
+        int dc[] = {1,0,-1,0};
+
+        int di = 0;
+
+        for(int i=0; i<(m*n); i++){
+            list.add(matrix[r][c]);
+            matrix[r][c] = Integer.MIN_VALUE;
+
+            int newRow = r + dr[di];
+            int newCol = c + dc[di];
+            if(  0<= newRow && newRow<m && 0<=newCol && newCol<n && 
+            matrix[newRow][newCol] != Integer.MIN_VALUE){
+                r = newRow;
+                c = newCol;
+            }
+            else{
+                    di = (di+1)%4;
+                    r += dr[di];
+                    c += dc[di];
+            }
+
+        }
+
+        return list;
+    }
+
+    // time complexity = O(M*N)
+    // space complexity = O(1)
+}
