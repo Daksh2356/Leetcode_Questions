@@ -89,3 +89,37 @@ class Solution {
     // space complexity = O(1)
         
 }
+
+
+//  Other way to solve this question (for small k, as above one was for large K):
+
+class Solution {
+    public int getLucky(String s, int k) {
+        // Step 1: Convert each character to its corresponding alphabet position
+        StringBuilder numStr = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            numStr.append(c - 'a' + 1); // Convert 'a' -> 1, 'b' -> 2, ..., 'z' -> 26
+        }
+
+        // Convert to integer and apply digit sum transformation k times
+        int num = getDigitSum(numStr.toString());
+
+        for (int i = 1; i < k; i++) {
+            num = getDigitSum(String.valueOf(num));
+        }
+
+        return num;
+    }
+
+    // Helper function to calculate the sum of digits
+    private int getDigitSum(String numStr) {
+        int sum = 0;
+        for (char c : numStr.toCharArray()) {
+            sum += c - '0'; // Convert char to integer and add
+        }
+        return sum;
+    }
+
+    // Time Complexity: O(n + k log n)
+    // Space Complexity: O(n) 
+}
