@@ -49,4 +49,9 @@ class Solution {
 
         return dp[amount] == amount + 1 ? -1 : dp[amount]; // If no valid solution, return -1
     }
+
+        
+    // time complexity = O(coins.length*amount)
+    // space complexity = O(amount) 
+    
 }
