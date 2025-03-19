@@ -46,9 +46,9 @@ class Solution {
     }
 
     public int solve(int dice, int faces, int target, int[][] dp){
-        if(target < 0) return 0; // invalid sum
 
-        if(dice == 0 ) return target == 0 ? 1 : 0 ; // If no dice left, valid only if 0 target
+        // If no dice or negative target left, then valid only if 0 target
+        if(dice == 0 || target < 0 ) return target == 0 ? 1 : 0 ; 
 
         if(dp[dice][target] != -1) return dp[dice][target];
 
