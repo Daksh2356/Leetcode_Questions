@@ -57,3 +57,33 @@ class Solution {
         // space complexity = O(1)
     }
 }
+
+// recursive solution with dp:
+
+class Solution {
+    public int jump(int[] nums) {
+        int n = nums.length;
+        int[] dp = new int[n];
+        Arrays.fill(dp, -1);  // Initialize memoization array
+        return minJumps(nums, 0, dp);
+    }
+
+    private int minJumps(int[] nums, int index, int[] dp) {
+        int n = nums.length;
+        if (index >= n - 1) return 0;  // Base case: reached last index
+        
+        if (dp[index] != -1) return dp[index];  // Return stored result
+
+        int minJumps = Integer.MAX_VALUE;
+        for (int jump = 1; jump <= nums[index]; jump++) {
+            int nextIndex = index + jump;
+            if (nextIndex < n) {
+                int jumpsFromNext = minJumps(nums, nextIndex, dp);
+                if (jumpsFromNext != Integer.MAX_VALUE)
+                    minJumps = Math.min(minJumps, 1 + jumpsFromNext);
+            }
+        }
+
+        return dp[index] = minJumps;  // Store and return result
+    }
+}
