@@ -64,7 +64,7 @@ class Solution {
             return x;
         }
 
-            // time = O(NlogN)
+            // time = O(N)
             // space = O(1)
         
         
@@ -93,6 +93,6 @@ class Solution {
 
        return sum;
     }
-    // time = O(NlogN)
+    // time = O(N)
     // space = O(1)
 }
