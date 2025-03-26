@@ -44,3 +44,28 @@ class Solution {
         return true;
     }
 }
+
+// recursive solution:
+class Solution {
+    public boolean canJump(int[] nums) {
+        int n = nums.length;
+        Boolean [] dp = new Boolean[n]; // Boolean allows for null values
+        return canReach(nums, 0, dp);
+    }
+
+    private boolean canReach(int[] nums, int index, Boolean[] dp) {
+        int n = nums.length;
+        if (index >= n - 1) return true; // Base case: reached last index
+        if (dp[index] != null ) return dp[index]; // Return stored result
+
+        for (int jump = 1; jump <= nums[index]; jump++) {
+            int nextIndex = index + jump;
+
+            if(canReach(nums, nextIndex, dp))  // Check from next index too
+                return dp[index] = true;
+        }    
+        return dp[index] = false;  // Store and return result if no jumps are there
+    }
+    // Time = O(N^2)
+    // Space = O(N)
+}
