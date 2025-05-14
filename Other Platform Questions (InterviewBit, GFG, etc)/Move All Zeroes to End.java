@@ -23,8 +23,8 @@ Input: arr[] = [0,0]
 
 
 !Constraints:
-!2 ≤ arr.size() ≤ 10^5
-!1 ≤ arr[i] ≤ 10^5
+!1 ≤ arr.size() ≤ 10^5
+!0 ≤ arr[i] ≤ 10^5
 
 */
 
