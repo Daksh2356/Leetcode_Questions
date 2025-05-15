@@ -39,26 +39,60 @@ Could you do it in-place with O(1) extra space?
 
 //!  CODE :
 
-class Solution 
-{
-    public:
-        int maxProfit(vector<int>& prices) {
-            int N = prices.size();
-            int min = INT_MAX;
-            int max = 0 ;
-            for(int i = 0 ; i<N;i++)
-            {
-                if(min > prices[i])
-                {
-                    min = prices[i];
-                }
-                if(max < (prices[i]-min))
-                {
-                    max = prices[i]-min;
-                }
-            }
-            return max;
-        }
-    // time complexity = O(N)
-    // space complexity = O(1)
-};  
+import java.util.Scanner;
+public class Main
+{   
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter size of array");
+		int n = sc.nextInt();
+		int arr[] = new int[n];
+		
+		for(int i =0; i<n; i++){
+		    System.out.println("Enter element at arr[" + i + "]: ");
+		    arr[i] = sc.nextInt();
+		}
+		
+		System.out.println("enter value of d");
+		int d = sc.nextInt();
+		
+		int cycles = findGCD(n,d);
+		
+		for(int i=0; i<cycles; i++){
+		    
+		    int startElement = arr[i];
+		    int currIdx = i, nextIdx;
+		    
+		    while(true){
+		        
+		        nextIdx = (currIdx + d) % n;
+		        
+		        if(nextIdx == i)
+		            break;
+                
+                arr[currIdx] = arr[nextIdx];
+                currIdx = nextIdx;
+		    }
+		    
+		    arr[currIdx] = startElement;
+		}
+		
+		
+		for(int i=0;i<n; i++){
+		    System.out.print(arr[i] + " ");
+		}
+		
+		
+	}
+	
+	public static int findGCD(int a , int b){
+	    while( b !=0 ){
+	        int temp = b;
+	        b = a % b;
+	        a = temp;
+	    }
+	    
+	    return a;
+	}
+}
