@@ -1,7 +1,7 @@
 /*
-! Question: 823. Best Time to Buy and Sell Stocks
-* Problem Difficulty level : Easy
-? Related Topics : Array, DP
+! Question: 189. Rotate Array
+* Problem Difficulty level : Medium
+? Related Topics : Array, Math, Two Pointers
 
 Problem Statement:
 
