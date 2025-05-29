@@ -1,7 +1,7 @@
 /*
 !  Weekly Contest 451 - Question 1 ( Easy)
 
-? 3162. Find the Number of Good Pairs I
+? Question: Find Minimum Log Transportation Cost
 
 You are given integers n, m, and k.
 
