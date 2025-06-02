@@ -54,4 +54,25 @@ class Solution {
         return ans;
     }
 }
-   
+
+second approach:
+class Solution {
+    int getMinDiff(int[] arr, int k) {
+        Arrays.sort(arr);
+        
+        int res = arr[n-1] - arr[0];
+        
+        for(int i=0; i<n-1; i++){
+            if(arr[i] - k < 0)
+                continue; // negative heights not allowed
+            
+            int minH = Math.min(arr[0] + k, arr[i] - k );  // smallest height depends on arr[0] and arr[i]
+            int maxH = Math.max(arr[n-1] -k, arr[i-1] + k); // tallest height depends on arr[i-1] and arr[n-1]
+            
+            res = Math.min(res, maxH - minH);
+        }
+        
+        return res;
+        
+    }
+}
