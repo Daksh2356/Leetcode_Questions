@@ -49,3 +49,29 @@ class Solution {
 
 // time complexity = O(n)
 // space complexity = O(1)
+
+
+2nd approach:
+
+	int maxProduct(int[] arr) {
+		int n = arr.length;
+		int leftSideProd = 1, rightSideProd = 1, maxProductSubarray = Integer.MIN_VALUE;
+
+		for(int i=0; i<n; i++){
+		    if(leftSideProd == 0)
+		        leftSideProd = 1;
+		    if(rightSideProd == 0)
+		        rightSideProd = 1;
+	        
+	        leftSideProd *= arr[i];
+	        
+	        int j = n-1-i;
+	        rightSideProd *= arr[j];
+	        maxProductSubarray = Math.max(maxProductSubarray, Math.max(rightSideProd, leftSideProd));
+		}
+		
+		return maxProductSubarray;
+	}
+
+// time complexity = O(n)
+// space complexity = O(1)
