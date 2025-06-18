@@ -48,5 +48,37 @@ class Solution {
 }
 
 
-// time complexity = O(n)
+// time complexity = O(n) + O(n) => O(2n)
 // space complexity = O(1)
+
+// approach 2: (optimized)
+
+class Solution {
+    private static final int MAX_CHAR = 26;
+    
+    static char nonRepeatingChar(String s) {
+        int[] visited = new int[MAX_CHAR];
+        Arrays.fill(visited, -1);
+        
+        for(int i=0; i<s.length(); i++){
+            int idx = s.charAt(i) - 'a';
+            if(visited[idx] == -1){
+                visited[idx] = i;
+            }else{
+                visited[idx] = -2;
+            }
+        }
+        
+        int minIdx = Integer.MAX_VALUE;
+        for(int i=0; i<MAX_CHAR; i++){
+            if(visited[i] >=0 ){
+                minIdx = Math.min(minIdx, visited[i]);
+            }
+        }
+        
+        return minIdx == Integer.MAX_VALUE ? '$' : s.charAt(minIdx);
+        
+        // time complexoty = O(n) + O(26) => O(n)
+        // space complexity O(26) => O(1)
+    }
+}
