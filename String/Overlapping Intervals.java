@@ -48,3 +48,38 @@ class Solution {
         return lst;
     }
 }
+
+// time complexity = O(nlogn)
+// space complexity = O(n) due to temp[]
+
+// alternative better approach below (⬇️)
+class Solution {
+    public List<int[]> mergeOverlap(int[][] arr) {
+        
+        int n = arr.length;
+        
+        if(n<=1)
+            return n == 1 ? Collections.singletonList(arr[0]) : new ArrayList<>();
+            
+        
+        Arrays.sort(arr, (a,b) -> Integer.compare(a[0], b[0]));
+        
+        List<int[]> lst = new ArrayList<>();
+        int resIdx = 0;
+        
+        for(int i =1; i<n; i++){
+            if(arr[resIdx][1] >= arr[i][0]){
+                arr[resIdx][1] = Math.max(arr[resIdx][1], arr[i][1]);
+            }else{
+                lst.add(arr[resIdx]);
+                arr[resIdx] = arr[i];
+            }
+        }
+        
+        lst.add(arr[resIdx]);
+        return lst;
+    }
+}
+
+// time complexity = O(nlogn) [same 😊]
+// space complexity = O(1) (constant 😎)
