@@ -69,3 +69,40 @@ public:
         return result;
     }
 };
+
+/*
+
+another approach (but with TLE)
+// User function Template for Java
+
+class Solution {
+    static ArrayList<int[]> insertInterval(int[][] intervals, int[] newInterval) {
+        // code here
+        ArrayList<int[]> intervalList = new ArrayList<>(Arrays.asList(intervals));
+        
+        intervalList.add(newInterval);
+ 
+        intervals = intervalList.toArray(new int[0][]);
+        
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+        
+        ArrayList<int[]> res = new ArrayList<>();
+        
+        int idx = 0;
+        
+        for(int i=1; i<intervals.length;i++){
+            if(intervals[idx][1] >= intervals[i][0]){
+              intervals[idx][1] = Math.max(intervals[idx][1], intervals[i][1]);
+            } else{
+              res.add(intervals[idx]);
+              intervals[idx] = intervals[i];
+            }
+        }
+        
+        res.add(intervals[idx]);
+        
+        return res;
+    }
+}
+
+*/
