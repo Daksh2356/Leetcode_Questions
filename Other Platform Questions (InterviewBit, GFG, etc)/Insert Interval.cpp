@@ -1,8 +1,8 @@
 /*
-Question: 957. Insert Interval
 Date : 14-03-24
-Problem Difficulty level : Medium
-Related Topics : Array
+Platform : GFG
+Track : GFG-160-problems
+Difficulty : Medium
 Problem Statement:
 
 You are given an array of non-overlapping intervals intervals where intervals[i] = [starti, endi] represent the start and the end of the ith
