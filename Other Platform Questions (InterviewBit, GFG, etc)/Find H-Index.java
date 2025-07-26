@@ -46,3 +46,22 @@ class Solution {
 
 // time complexity = O(nlogn)
 // space complexity = O(n)
+
+
+2nd approach:
+
+    Arrays.sort(citations);
+    
+    int n = citations.length;
+    
+    for(int i=0; i<n; i++){
+        int h = n-i;
+        
+        if(citations[i] >= h)
+            return h;
+    }
+    
+    return 0;
+
+// time complexity = O(nlogn)
+// space complexity = O(1)
