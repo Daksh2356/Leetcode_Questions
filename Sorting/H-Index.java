@@ -62,3 +62,30 @@ class Solution {
 
 // time complexity = O(nlogn)
 // space complexity = O(1)
+
+
+best approach:
+class Solution {
+    public int hIndex(int[] citations) {
+        int n = citations.length;
+        int[] freq = new int[n+1];
+
+        for(int val : citations){
+            if(val >= n)
+                freq[n]++;
+            else
+                freq[val]++;
+        }
+
+        int idx = n, sum = freq[n];
+        while(sum < idx){
+            idx--;
+            sum += freq[idx];
+        }
+
+        return idx;
+    }
+
+    // time complexity = O(n) + O(n) [filling freq array and then while loop]
+    // space complexity = O(n) [freq array]
+}
