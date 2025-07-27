@@ -52,3 +52,24 @@ class Solution {
 
 // time complexity = O(nlogn)
 // space complexity = O(1)
+
+2nd approach:
+class Solution {
+    static int minRemoval(int intervals[][]) {
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[1]));
+        
+        int removalCount = 0, end = intervals[0][1];
+        
+        for(int i=1; i<intervals.length; i++){
+            if(end > intervals[i][0])
+                removalCount++;
+            else
+                end = intervals[i][1];
+        }
+        
+        return removalCount;
+    }
+}
+
+// time complexity = O(nlogn)
+// space complexity = O(1)
