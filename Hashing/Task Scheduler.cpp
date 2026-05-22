@@ -68,3 +68,32 @@ public:
     // time complexity = O(n)
     // space complexity = O(1)
 };
+
+
+// More easier approach with same time and space complexity but more readable code (JAVA langugage)
+
+class Solution {
+    public int leastInterval(char[] tasks, int n) {
+        int[] freq = new int[26];
+        for (char task : tasks) {
+            freq[task - 'A']++;
+        }
+
+        int countMax = 0;
+        int max = freq[0];
+        for (int val : freq) {
+            if (val == max)
+                countMax += 1;
+            if (max < val) {
+                max = val;
+                countMax = 1;
+            }
+        }
+
+        int minimumLength = countMax + (max - 1) * (n + 1);
+        int ans = Math.max(minimumLength, tasks.length);
+        return ans;
+
+        // T.C = O(N), S.C = O(1)
+    }
+}
